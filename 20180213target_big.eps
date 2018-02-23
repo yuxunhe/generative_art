@@ -1,0 +1,41 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: 0 0 500 500
+250 250 translate
+0 0 0 setrgbcolor
+0 setlinecap
+
+newpath
+0 0 250 0 360 arc closepath
+fill
+
+10 setlinewidth
+1 1 1 setrgbcolor
+%center
+0 0 25 0 360 arc closepath
+fill
+%/center
+/r 30 def
+/inc 10 def
+
+
+%e = end
+%s = start
+
+r inc 250 {
+  /s rand def
+  /s s 360 mod def
+  /e rand def
+  /e e 360 mod def
+
+  newpath
+  0 0 r s e arc
+  stroke
+  /r r inc add def
+
+} for
+
+
+
+showpage
+
+%EOF

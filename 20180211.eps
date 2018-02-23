@@ -1,0 +1,48 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: 0 0 500 500
+5 5 scale
+50 50 translate
+
+
+1 setlinejoin
+1 setlinecap
+
+
+
+/drotate 0.1 def
+/n 360 drotate div def
+/r 0 def  %255 scale
+/dr 0 def
+/g 0 def
+/dg 3 def
+/b 0 def
+/db 3 def
+
+1 1 n {
+/rr r 255 div def
+/gg g 255 div def
+/bb b 255 div def
+
+drotate rotate
+rr gg bb setrgbcolor
+newpath
+50   0 moveto
+  0  50 lineto
+-50   0 lineto
+  0 -50 lineto
+closepath
+stroke
+
+/r r dr add def
+/r r 255 mod def
+/g g dg add def
+/g g 255 mod def
+/b b db add def
+/b b 255 mod def
+
+} for
+
+
+showpage
+
+%EOF

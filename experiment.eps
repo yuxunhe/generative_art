@@ -1,0 +1,32 @@
+%%BoundingBox: 0 0 500 500
+
+250 250 translate
+
+/r 100 def
+/innerr 80 def
+/outerr 120 def
+
+newpath
+0 0 innerr 0 360 arc
+closepath
+stroke
+
+newpath
+0 0 r 0 360 arc
+closepath
+stroke
+
+newpath
+0 0 outerr 0 360 arc
+closepath
+stroke
+
+/segcount 8 def
+/dx r 2 mul segcount div def
+
+/x1 r neg def
+/x2 x1 dx add def
+/y1 0 def
+/y2 r r mul x2 x2 mul sub sqrt def
+
+showpage

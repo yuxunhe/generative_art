@@ -1,0 +1,85 @@
+%%BoundingBox: 0 0 500 500
+250 250 translate
+
+/p1x 0 def
+/p1y 0 def
+/p4x 0 def
+/p4y 0 def
+/p2x -25 def
+/p3x 25 def
+/p2y 25 def
+/p3y 25 def
+
+/dd 15 def
+/pedalsize 30 def
+%colors
+/c1r 1 def
+/c1g 0.83 def
+/c1b 0.83 def
+
+/c2r 0.67 def
+/c2g 0 def
+/c2b 0.33 def
+
+/r c1r def
+/g c1g def
+/b c1b def
+
+r g b setrgbcolor
+
+/dr c2r c1r sub def
+/dr dr pedalsize div def
+/dg c2g c1g sub def
+/dg dg pedalsize div def
+/db c2b c1b sub def
+/db db pedalsize div def
+
+
+
+newpath %bezier
+p1x p1y moveto
+p2x p2y
+p3x p3y
+p4x p4y curveto
+stroke
+
+1 1 5 {
+  /p1x 0 def
+  /p1y 0 def
+  /p4x 0 def
+  /p4y 0 def
+  /p2x -25 def
+  /p3x 25 def
+  /p2y 25 def
+  /p3y 25 def
+
+  /r c1r def
+  /g c1g def
+  /b c1b def
+
+  r g b setrgbcolor
+  
+1 1 pedalsize {
+  newpath %bezier
+  p1x p1y moveto
+  p2x p2y
+  p3x p3y
+  p4x p4y curveto
+  stroke
+  /d rand def
+  /d d dd mod def
+  /p2y p2y d add def
+  /p2x p2x d sub def
+  /p3y p3y d add def
+  /p3x p3x d add def
+
+  /r r dr add def
+  /g g dg add def
+  /b b db add def
+  r g b setrgbcolor
+
+
+} for
+  72 rotate
+} for
+showpage

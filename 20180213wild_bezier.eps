@@ -1,0 +1,62 @@
+%%BoundingBox: 0 0 500 500
+
+
+%point1: 0 250 point2: 500 250
+%point3, 4 init: 150 250; 350, 250
+/p1x 0 def
+/p1y 250 def
+/p2x 150 def
+/p2y 250 def
+/p3x 300 def
+/p3y 250 def
+/p4x 450 def
+/p4y 250 def
+
+%colors
+0 200 translate 
+
+/c1r 0.83 def
+/c1g 0.83 def
+/c1b 1 def
+
+/c2r 0.1 def
+/c2g 0.43 def
+/c2b 0.77 def
+
+/nrotate 100 def
+
+/dr c2r c1r sub def
+/dr dr nrotate div def
+/dg c2g c1g sub def
+/dg dg nrotate div def
+/db c2b c1b sub def
+/db db nrotate div def
+
+/r c1r def
+/g c1g def
+/b c1b def
+
+r g b setrgbcolor
+
+1 1 nrotate {
+  /d1 rand def
+  /d1 d1 15 mod def
+  /d2 rand def
+  /d2 d2 20 mod def
+  /p2y p2y d1 add def
+  /p3y p3y d2 sub def
+
+  newpath %bezier
+  p1x p1y moveto
+  p2x p2y
+  p3x p3y
+  p4x p4y curveto
+  stroke
+
+  /r r dr add def
+  /g g dg add def
+  /b b db add def
+  r g b setrgbcolor
+} for
+
+showpage
